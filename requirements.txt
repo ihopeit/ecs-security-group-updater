@@ -1,0 +1,5 @@
+aliyun-python-sdk-core-v3==2.13.11
+aliyun-python-sdk-ecs==4.23.2
+cryptography==3.2.1
+pycryptodome==3.9.9
+requests==2.25.1
