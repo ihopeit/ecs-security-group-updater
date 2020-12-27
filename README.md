@@ -9,6 +9,7 @@
 例如, 允许 当前机器的外网 IP 访问 安全组的 80端口:
 机器分组在北京, 
 
+```
 export port_range='80/80'
 export region_id='cn-beijing'
 export security_group_id="bj-xxxxxx"
@@ -16,3 +17,4 @@ export aliyun_ak="xxxxx"
 export aliyun_sk="yyyyy"
 
 python3 update_security_group.py
+```
