@@ -63,6 +63,7 @@ def add_ip(securityGroupId, sourceCidrIp, portRange, priority):
     request.add_query_param("Description", description)
     response = client.do_action_with_exception(request)
 
+print("1.query current security group...")
 request = DescribeSecurityGroupAttributeRequest.DescribeSecurityGroupAttributeRequest()
 request.set_SecurityGroupId(security_group_id)
 
@@ -78,8 +79,10 @@ securityGroupId = responsepermissions.get("SecurityGroupId")
 
 current_ip_in_perm_list = False
 
+print("2.detect current ip address...")
 cur_ip = get_now_ip()
 
+print("3.remove existed priority group with specified priority...")
 for perm in permissions:
     
     ## 找到 指定端口, Priority = 2 的安全规则:
@@ -95,6 +98,7 @@ for perm in permissions:
 
 print("current ip:%s, current ip in permission list:%s" % (cur_ip, current_ip_in_perm_list) )
 
+print("4.add current ip address to permission list")
 if not current_ip_in_perm_list:
     # add to permission list:
     add_ip(securityGroupId, cur_ip, port_range, default_priority)
